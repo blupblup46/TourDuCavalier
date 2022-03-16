@@ -6,7 +6,7 @@ def plateauCarre(n):
 
     echequier = dict()
 
-    for k in range(n): # n*n -> dimentions de l'échequier
+    for k in range(n*n): # n*n -> dimentions de l'échequier
         i = k//n         #ligne de la case k
         j = k%n          #colone de la case k
         echequier[k]=[]  #liste des voisins de la case k
@@ -38,8 +38,7 @@ def plateauCarre(n):
     return echequier
 
 
-graphe = plateauCarre(3)
-
+graphe = plateauCarre(4)
 affichage = nx.Graph()
 affichage.add_nodes_from(mygraph.Graphe(graphe).all_sommets())
 affichage.add_edges_from(mygraph.Graphe(graphe).all_aretes())
