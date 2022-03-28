@@ -3,15 +3,18 @@ import networkx as nx
 import matplotlib.pyplot as plt 
 
 def dfs_cavalierEdition (depart): 
+    #Pour chaque sommets, on lance la recherche d'un chemin 
     
     if depart not in visite:
         
         visite.append(depart)
         Q.pop()
         
-        voisinTrie = list()
+        voisinTrie = list() 
+        #On fera le dfs a partir de cette liste de voisin triee sur le nombre de voisin a partir d'un des voisins de depart
         
         for boucle in range (len(graph[depart])):
+            #Trie des voisins du sommet depart sur leurs nombre de voisins
             minPosibilite= 999
             minSommet = 1
             
@@ -29,10 +32,12 @@ def dfs_cavalierEdition (depart):
                     dfs_cavalierEdition(voisin)
        
         if (len(Q)!=0 ):
+            #S'il n'y a plus de voisins pour le sommet de depart mais qu'il reste encore des sommets dans la reserve Q, alors on rebrousse-chemin 
             visite.pop()
             Q.append(1)
         
 def afficherResultat():
+    #Recuperation des sommets et des arretes pour creer un affichage
     if visite!=[]:
         resultat = nx.Graph()
         resultat.add_nodes_from(graph.keys())
@@ -46,6 +51,7 @@ def afficherResultat():
         print("Aucun chemin trouvé")
     print(visite)
 
+#Programme principal
 visite=[]
 Q=[]
 
