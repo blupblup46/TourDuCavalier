@@ -2,25 +2,20 @@ import grapheDeplacements
 import networkx as nx
 import matplotlib.pyplot as plt 
 
-##Initialisation du dictionnaire des distances
-
 def dfs_cavalierEdition (depart): 
     
     if depart not in visite:
         
         visite.append(depart)
         Q.pop()
-            
-        #print(visite)
         
         voisinTrie = list()
         
         for boucle in range (len(graph[depart])):
             minPosibilite= 999
             minSommet = 1
+            
             for voisin in graph[depart]:
-                
-                
                 if (voisin not in voisinTrie):
                     if (minPosibilite > len(graph[voisin])):
                         minPosibilite = len(graph[voisin])
